@@ -1,5 +1,15 @@
-Module to wire `monaco-textmate` with `monaco-editor`
+# Wire `monaco-textmate` with `monaco-editor`
 
+## Install
+
+```sh
+npm i monaco-editor-textmate
+```
+
+Please install peer dependencies if you haven't already
+```sh
+npm i monaco-textmate monaco-editor onigasm
+```
 ## Usage
 
 ```javascript
