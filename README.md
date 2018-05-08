@@ -30,7 +30,9 @@ export async function liftOff() {
     })
 
     const grammars = new Map()
-    grammars.set('css', 'CSS')
+    grammars.set('css', 'source.css')
+    grammars.set('html', 'text.html.basic')
+    grammars.set('typescript', 'source.ts')
 
     await wireTmGrammars(monaco, registry, grammars)
 
