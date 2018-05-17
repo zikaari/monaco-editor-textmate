@@ -43,9 +43,20 @@ export async function liftOff() {
             '    margin: 0;',
             '}'
         ].join('\n'),
-        language: 'css'
+        language: 'css' // this won't work out of the box, see below for more info
     })
 }
 ```
+
+## Limitation
+
+`monaco-editor` distribution comes with built-in tokenization support for few languages. Because of this `monaco-editor-textmate` [cannot
+be used with `monaco-editor`](https://github.com/Microsoft/monaco-editor/issues/884) without some modification, see explanation of this problem [here](https://github.com/Microsoft/monaco-editor/issues/884#issuecomment-389778611).
+
+### Solution
+
+To get `monaco-editor-textmate` working with `monaco-editor`, you're advised to use Webpack with [`monaco-editor-webpack-plugin`](https://www.npmjs.com/package/monaco-editor-webpack-plugin) which allows you to control which of "built-in" languages should `monaco-editor` use/bundle, leaving the rest.
+With that control you must *exclude* any/all languages for which you'd like to use TextMate grammars based tokenization instead.
+
 ## License
 MIT
