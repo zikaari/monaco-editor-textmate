@@ -31,6 +31,6 @@
   },
   "peerDependencies": {
     "monaco-editor": "^0.12.0",
-    "monaco-textmate": "^1.0.1"
+    "monaco-textmate": "^2.0.0"
   }
 }
