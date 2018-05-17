@@ -29,6 +29,7 @@ export async function liftOff() {
         }
     })
 
+    // map of monaco "language id's" to TextMate scopeNames
     const grammars = new Map()
     grammars.set('css', 'source.css')
     grammars.set('html', 'text.html.basic')
