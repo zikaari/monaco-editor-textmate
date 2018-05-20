@@ -16,10 +16,11 @@ class TokenizerState implements monacoNsps.languages.IState {
     }
 
     public equals(other: monacoNsps.languages.IState): boolean {
-        if (other === this) {
-            return true;
-        }
-        if (!other || !(other instanceof TokenizerState)) {
+        if (!other ||
+            !(other instanceof TokenizerState) ||
+            other !== this ||
+            other._ruleStack !== this._ruleStack
+        ) {
             return false;
         }
         return true;
