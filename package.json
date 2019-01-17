@@ -6,7 +6,8 @@
   "typings": "dist/typings/index.d.ts",
   "scripts": {
     "build": "tsc",
-    "watch": "tsc -w"
+    "watch": "tsc -w",
+    "prepack": "npm run build"
   },
   "repository": {
     "type": "git",
@@ -32,5 +33,10 @@
   "peerDependencies": {
     "monaco-editor": "^0.14.0",
     "monaco-textmate": "^3.0.0"
+  },
+  "dependencies": {
+    "monaco-editor": "^0.14.3",
+    "monaco-textmate": "^3.0.0",
+    "onigasm": "^2.2.1"
   }
 }
