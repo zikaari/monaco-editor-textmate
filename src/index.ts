@@ -1,5 +1,6 @@
 import { Registry, StackElement, INITIAL } from 'monaco-textmate'
 import * as monacoNsps from 'monaco-editor'
+import { TMToMonacoToken } from './tm-to-monaco-token';
 
 class TokenizerState implements monacoNsps.languages.IState {
 
@@ -34,7 +35,7 @@ class TokenizerState implements monacoNsps.languages.IState {
  * @param registry TmGrammar `Registry` this wiring should rely on to provide the grammars
  * @param languages `Map` of language ids (string) to TM names (string)
  */
-export function wireTmGrammars(monaco: typeof monacoNsps, registry: Registry, languages: Map<string, string>) {
+export function wireTmGrammars(monaco: typeof monacoNsps, registry: Registry, languages: Map<string, string>, editor?: monacoNsps.editor.ICodeEditor) {
     return Promise.all(
         Array.from(languages.keys())
             .map(async (languageId) => {
@@ -48,7 +49,7 @@ export function wireTmGrammars(monaco: typeof monacoNsps, registry: Registry, la
                             tokens: res.tokens.map(token => ({
                                 ...token,
                                 // TODO: At the moment, monaco-editor doesn't seem to accept array of scopes
-                                scopes: token.scopes[token.scopes.length - 1]
+                                scopes: editor ? TMToMonacoToken(editor, token.scopes) : token.scopes[token.scopes.length - 1]
                             })),
                         }
                     }
