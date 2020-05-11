@@ -35,16 +35,23 @@ export async function liftOff() {
     grammars.set('html', 'text.html.basic')
     grammars.set('typescript', 'source.ts')
 
-    await wireTmGrammars(monaco, registry, grammars)
-
+    // monaco's built-in themes aren't powereful enough to handle TM tokens
+    // https://github.com/Nishkalkashyap/monaco-vscode-textmate-theme-converter#monaco-vscode-textmate-theme-converter
+    monaco.editor.defineTheme('vs-code-theme-converted', {
+        // ... use `monaco-vscode-textmate-theme-converter` to convert vs code theme and pass the parsed object here
+    });
+    
     var editor = monaco.editor.create(document.getElementById('container'), {
         value: [
             'html, body {',
             '    margin: 0;',
             '}'
         ].join('\n'),
-        language: 'css' // this won't work out of the box, see below for more info
+        language: 'css', // this won't work out of the box, see below for more info,
+        theme: 'vs-code-theme-converted' // very important, see comment above
     })
+    
+    await wireTmGrammars(monaco, registry, grammars, editor)
 }
 ```
 
