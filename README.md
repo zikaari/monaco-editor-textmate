@@ -1,5 +1,7 @@
 # Wire `monaco-textmate` with `monaco-editor`
 
+**Note:** *The latest version of this library requires `monaco-editor` version `0.21.2` and up. If you wish to use an older version of `monaco-editor` `0.19.x` or below, you should use an older version `2.2.2` of this library.*
+
 ## Install
 
 ```sh
