@@ -57,6 +57,10 @@ export async function liftOff() {
 
 ## Limitation
 
+**Version Issue!**
+
+`monaco-editor` version `0.21.1` and later have some API changes which is implimented in current version of this package. If you want to use `monaco-editor` version lower than or eqvivalent to `0.19.x`, use version `2.2.2` of this package.
+
 `monaco-editor` distribution comes with built-in tokenization support for few languages. Because of this `monaco-editor-textmate` [cannot
 be used with `monaco-editor`](https://github.com/Microsoft/monaco-editor/issues/884) without some modification, see explanation of this problem [here](https://github.com/Microsoft/monaco-editor/issues/884#issuecomment-389778611).
 
