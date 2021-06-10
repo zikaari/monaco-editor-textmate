@@ -1,6 +1,6 @@
 {
   "name": "monaco-editor-textmate",
-  "version": "2.2.2",
+  "version": "3.0.0",
   "description": "Wire monaco-textmate with monaco-editor",
   "main": "dist/index.js",
   "typings": "dist/typings/index.d.ts",
