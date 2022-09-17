@@ -37,13 +37,13 @@ export const TMToMonacoToken = (editor: monacoNsps.editor.ICodeEditor, scopes: s
             if (char === ".") {
                 const token = scope.slice(0, i);
                 if (
-                    editor['_themeService'].getColorTheme()._tokenTheme._match(token + "." + scopeName)._foreground >
+                    editor['_themeService']._theme._tokenTheme._match(token + "." + scopeName)._foreground >
                     1
                 ) {
                     return token + "." + scopeName;
                 }
-                if (editor['_themeService'].getColorTheme()._tokenTheme._match(token)._foreground > 1) {
-                    return token;
+                if (editor["_themeService"]._theme._tokenTheme._match(token)._foreground > 1) {
+                  return token;
                 }
             }
         }
